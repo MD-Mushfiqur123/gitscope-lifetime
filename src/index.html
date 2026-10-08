@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GITSCOPE — Lifetime Developer Portfolio & Deep Audit</title>
+  <!-- Swiss Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            swiss: {
+              black: '#09090b',
+              surface: '#121215',
+              card: '#18181b',
+              border: '#27272a',
+              subtle: '#3f3f46',
+              muted: '#71717a',
+              text: '#fafafa',
+              red: '#ff2a2a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: #09090b;
+      color: #fafafa;
+      letter-spacing: -0.015em;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: -0.025em;
+    }
+    .swiss-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #09090b;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #27272a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #3f3f46;
+    }
+    .titlebar-drag {
+      -webkit-app-region: drag;
+    }
+    .titlebar-nodrag {
+      -webkit-app-region: no-drag;
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col bg-swiss-black text-swiss-text overflow-hidden swiss-grid select-none">
+
+  <!-- Swiss Top Header -->
+  <header class="h-12 border-b border-swiss-border flex items-center justify-between px-6 titlebar-drag flex-shrink-0 z-50 bg-swiss-black/95 backdrop-blur-md">
+    <div class="flex items-center gap-3 titlebar-nodrag">
+      <div class="w-5 h-5 bg-swiss-red flex items-center justify-center text-white font-bold text-xs">
+        +
+      </div>
+      <span class="font-bold text-xs uppercase tracking-widest text-white">GITSCOPE</span>
+      <span class="text-[10px] text-swiss-muted font-mono tracking-wider border-l border-swiss-border pl-3">SYSTEM 2.0 / PORTFOLIO & AUDIT</span>
+    </div>
+
+    <div class="flex items-center gap-6 titlebar-nodrag text-xs font-mono pr-24 text-swiss-muted">
+      <div id="header-rate-box" class="hidden items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-swiss-red animate-pulse"></span>
+        <span>RATE: <b id="header-rate-val" class="text-white">5000/5000</b></span>
+      </div>
+      <span class="hidden sm:inline">LEAD: <b class="text-white">MD MUSHFIQUR RAHIM</b></span>
+      <button id="btn-reset-auth" class="hidden text-swiss-muted hover:text-white uppercase tracking-wider text-[10px] transition cursor-pointer border border-swiss-border px-2.5 py-1">
+        [ NEW AUDIT ]
+      </button>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <div class="flex-1 flex overflow-hidden relative">
+
+    <!-- 1. AUTH GATEWAY VIEW (Default) -->
+    <section id="auth-view" class="flex-1 flex flex-col items-center justify-center p-6 z-20 max-w-xl mx-auto text-left">
+      
+      <div class="w-full flex items-center justify-between border-b border-swiss-border pb-3 mb-8">
+        <span class="text-xs font-mono uppercase tracking-widest text-swiss-muted">LIFETIME DEVELOPER PORTFOLIO GENERATOR</span>
+        <span class="text-xs font-mono text-swiss-red font-semibold">SWISS V2</span>
+      </div>
+
+      <div class="w-full mb-8">
+        <h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white leading-tight">
+          Audit every single commit,<br/>
+          <span class="text-swiss-muted">PR, word & repository.</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-swiss-muted mt-3 leading-relaxed">
+          Unlock your complete lifetime developer portfolio: total files, lines of code, words written, pull requests, stars, and full multi-dimensional pie chart analytics.
+        </p>
+      </div>
+
+      <!-- Auth Form Card -->
+      <div class="w-full bg-swiss-surface border border-swiss-border p-6 mb-4">
+        
+        <!-- Direct Token Link Banner -->
+        <div class="bg-swiss-black border border-swiss-border p-3.5 mb-5 flex items-center justify-between">
+          <div class="space-y-0.5">
+            <span class="text-[10px] font-mono text-swiss-red uppercase tracking-wider font-bold">1-CLICK GET TOKEN:</span>
+            <div class="text-xs text-white font-mono truncate">github.com/settings/tokens/new</div>
+          </div>
+          <a 
+            href="https://github.com/settings/tokens/new?description=GitScope-Lifetime-Auditor&scopes=repo,read:org,user,gist" 
+            target="_blank" 
+            class="bg-swiss-red hover:bg-red-600 text-white font-mono text-[11px] font-bold px-3 py-1.5 uppercase transition flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
+          >
+            <span>GENERATE PAT</span>
+            <span>&nearr;</span>
+          </a>
+        </div>
+
+        <label for="token-input" class="block text-xs font-mono uppercase tracking-wider text-swiss-muted mb-2">
+          PASTE GITHUB PERSONAL ACCESS TOKEN (PAT)
+        </label>
+        
+        <div class="relative mb-3">
+          <input 
+            type="password" 
+            id="token-input" 
+            placeholder="ghp_xxxxxxxxxxxxxxxxxxxx or github_pat_..." 
+            class="w-full bg-swiss-black border border-swiss-border px-4 py-3 text-xs font-mono text-white placeholder-zinc-700 focus:outline-none focus:border-white transition"
+          />
+          <button 
+            id="btn-toggle-eye" 
+            type="button" 
+            class="absolute right-3 top-3 text-xs font-mono text-swiss-muted hover:text-white"
+          >
+            SHOW
+          </button>
+        </div>
+
+        <!-- Pre-configured Scopes & Instructions Box -->
+        <div class="bg-swiss-black/60 border border-swiss-border/80 p-3 mb-5 text-[11px] font-mono text-zinc-400 space-y-1.5">
+          <div class="flex items-center justify-between text-zinc-300">
+            <span>RECOMMENDED SCOPES:</span>
+            <span class="text-swiss-red font-bold">4 CHECKBOXES</span>
+          </div>
+          <div class="grid grid-cols-2 gap-1 text-[10px] text-zinc-400">
+            <div>&bull; <code class="text-zinc-200">repo</code> (Private repos)</div>
+            <div>&bull; <code class="text-zinc-200">read:org</code> (Org projects)</div>
+            <div>&bull; <code class="text-zinc-200">user</code> (Profile info)</div>
+            <div>&bull; <code class="text-zinc-200">gist</code> (Snippets audit)</div>
+          </div>
+        </div>
+
+        <!-- Run Audit Button -->
+        <button 
+          id="btn-run-audit" 
+          class="w-full bg-white hover:bg-zinc-200 text-black font-bold text-xs uppercase tracking-wider py-3.5 px-4 transition active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <span>GENERATE LIFETIME PORTFOLIO</span>
+          <span class="font-mono">&rarr;</span>
+        </button>
+
+        <button 
+          id="btn-public-scan" 
+          class="w-full mt-2.5 bg-transparent hover:bg-zinc-900 border border-swiss-border text-zinc-400 hover:text-white font-mono text-xs uppercase tracking-wider py-2 px-4 transition cursor-pointer"
+        >
+          SCAN PUBLIC USERNAME ONLY (NO TOKEN)
+        </button>
+      </div>
+
+      <div id="auth-loading-bar" class="hidden w-full bg-swiss-surface border border-swiss-border p-4">
+        <div class="flex items-center justify-between text-xs font-mono mb-2">
+          <span id="load-phase" class="text-white uppercase font-bold">CONNECTING...</span>
+          <span id="load-pct" class="text-swiss-red">0%</span>
+        </div>
+        <div class="w-full h-1 bg-zinc-800">
+          <div id="load-progress-fill" class="h-full bg-swiss-red w-0 transition-all duration-300"></div>
+        </div>
+        <p id="load-msg" class="text-[11px] font-mono text-zinc-400 mt-2 truncate">Starting discovery pipeline...</p>
+      </div>
+
+    </section>
+
+    <!-- 2. SWISS LIFETIME PORTFOLIO VIEW -->
+    <main id="dashboard-view" class="hidden flex-1 flex flex-col p-6 sm:p-8 overflow-y-auto custom-scrollbar">
+      
+      <!-- Top Portfolio Hero Banner -->
+      <div class="border-b border-swiss-border pb-8 mb-8">
+        
+        <div class="flex flex-wrap items-start justify-between gap-6">
+          
+          <!-- User Details -->
+          <div class="flex items-start gap-5">
+            <img id="dash-avatar" class="w-20 h-20 border border-swiss-border bg-swiss-surface flex-shrink-0" src="" alt="User" />
+            <div class="space-y-1">
+              <div class="flex items-center gap-3">
+                <h1 id="dash-name" class="text-3xl font-black uppercase text-white tracking-tight">MD MUSHFIQUR RAHIM</h1>
+                <a id="dash-link" href="#" target="_blank" class="text-xs font-mono text-swiss-muted hover:text-white underline">
+                  @<span id="dash-login">mushfiqur</span>
+                </a>
+              </div>
+              <p id="dash-bio" class="text-xs text-zinc-400 max-w-xl leading-relaxed">Independent AI Systems Researcher & Software Engineer</p>
+              <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-zinc-500 pt-2">
+                <span id="dash-location">LOC: BARISAL, BD</span>
+                <span>&bull;</span>
+                <span id="dash-created">SINCE: 2020</span>
+                <span>&bull;</span>
+                <span id="dash-gists">GISTS: 0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Lifetime Repos Grand Stat -->
+          <div class="bg-swiss-surface border border-swiss-border p-5 text-right min-w-[240px]">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-swiss-muted block">LIFETIME REPOSITORIES</span>
+            <div id="dash-grand-total" class="text-5xl sm:text-6xl font-black text-white font-mono tracking-tighter my-1">
+              0
+            </div>
+            <span class="text-[10px] font-mono text-swiss-red">100% PRIVATE + PUBLIC AUDITED</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- SWISS METRIC SCOPE SELECTOR (SOURCE ONLY VS ALL + FORKS) -->
+      <div class="flex flex-wrap items-center justify-between gap-4 bg-swiss-surface border border-swiss-border p-3.5 mb-6">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 bg-swiss-red"></span>
+          <span class="text-xs font-mono uppercase tracking-wider text-white font-bold">PORTFOLIO CALCULATION MODE:</span>
+          <span id="scope-mode-label" class="text-xs font-mono text-zinc-400">ORIGINAL SOURCE ONLY (NO FORKS)</span>
+        </div>
+
+        <div class="flex items-center gap-1.5 font-mono text-xs">
+          <button 
+            id="btn-mode-source" 
+            class="px-3.5 py-1.5 bg-white text-black font-bold uppercase transition cursor-pointer"
+          >
+            SOURCE ONLY (NO FORKS)
+          </button>
+          <button 
+            id="btn-mode-all" 
+            class="px-3.5 py-1.5 bg-swiss-black text-zinc-400 hover:text-white border border-swiss-border uppercase transition cursor-pointer"
+          >
+            ALL INCLUSIVE (+ 464 FORKS)
+          </button>
+        </div>
+      </div>
+
+      <!-- 10-GRID LIFETIME VOLUME & ACTIVITY METRICS -->
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3.5 mb-8">
+        
+        <!-- Total Commits -->
+        <div class="bg-swiss-surface border border-swiss-border p-4">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">01 / COMMITS</div>
+          <div id="stat-commits" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-zinc-500 mt-1">PUSHED LIFETIME</div>
+        </div>
+
+        <!-- Total PRs -->
+        <div class="bg-swiss-surface border border-swiss-border p-4 border-t-2 border-t-swiss-red">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">02 / PULL REQUESTS</div>
+          <div id="stat-prs" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-swiss-red mt-1"><span id="stat-merged-prs">0</span> MERGED</div>
+        </div>
+
+        <!-- Total Files -->
+        <div class="bg-swiss-surface border border-swiss-border p-4">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">03 / TOTAL FILES</div>
+          <div id="stat-files" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-zinc-500 mt-1">ACROSS ALL CODEBASES</div>
+        </div>
+
+        <!-- Estimated Lines of Code (LOC) -->
+        <div class="bg-swiss-surface border border-swiss-border p-4">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">04 / LINES OF CODE</div>
+          <div id="stat-loc" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-zinc-500 mt-1">ESTIMATED LOC</div>
+        </div>
+
+        <!-- Total Words Written in Codebase -->
+        <div class="bg-swiss-surface border border-swiss-border p-4 border-t-2 border-t-white">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">05 / WORDS WRITTEN</div>
+          <div id="stat-words" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-zinc-400 mt-1 font-semibold">TOTAL WORDS</div>
+        </div>
+
+        <!-- Total Letters (Characters) Count -->
+        <div class="bg-swiss-surface border border-swiss-border p-4 border-t-2 border-t-swiss-red">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">06 / LETTERS & CHARS</div>
+          <div id="stat-letters" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-swiss-red mt-1 font-semibold"><span id="stat-chars">0</span> CHARACTERS</div>
+        </div>
+
+        <!-- Storage Footprint -->
+        <div class="bg-swiss-surface border border-swiss-border p-4">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">07 / DISK FOOTPRINT</div>
+          <div id="stat-size" class="text-2xl font-bold font-mono text-white mt-1">0 MB</div>
+          <div class="text-[10px] font-mono text-zinc-500 mt-1">~<span id="stat-size-gb">0</span> GB TOTAL</div>
+        </div>
+
+        <!-- Stars Earned -->
+        <div class="bg-swiss-surface border border-swiss-border p-4">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">08 / STARS & FORKS</div>
+          <div id="stat-stars" class="text-2xl font-bold font-mono text-white mt-1">0 ⭐</div>
+          <div class="text-[10px] font-mono text-zinc-500 mt-1"><span id="stat-forks">0</span> FORKS</div>
+        </div>
+
+        <!-- Issues & Tickets -->
+        <div class="bg-swiss-surface border border-swiss-border p-4">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">09 / ISSUES & TASKS</div>
+          <div id="stat-issues" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-zinc-500 mt-1">DISCUSSIONS / TICKETS</div>
+        </div>
+
+        <!-- Gists Count -->
+        <div class="bg-swiss-surface border border-swiss-border p-4">
+          <div class="text-[10px] font-mono uppercase tracking-wider text-swiss-muted">10 / GISTS & SNIPPETS</div>
+          <div id="stat-gists-count" class="text-2xl font-bold font-mono text-white mt-1">0</div>
+          <div class="text-[10px] font-mono text-zinc-500 mt-1">LIFETIME GISTS</div>
+        </div>
+
+      </div>
+
+      <!-- 3-PIE CHARTS PORTFOLIO BREAKDOWN SECTION -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        
+        <!-- Pie 1: Languages Distribution -->
+        <div class="bg-swiss-surface border border-swiss-border p-5 flex flex-col">
+          <div class="flex items-center justify-between border-b border-swiss-border pb-3 mb-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-white font-bold">01. LANGUAGES PIE</span>
+            <span class="text-[10px] font-mono text-swiss-muted">CODE SHARE</span>
+          </div>
+          <div class="h-64 relative flex items-center justify-center">
+            <canvas id="pie-languages-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Pie 2: Repository Types & Privacy -->
+        <div class="bg-swiss-surface border border-swiss-border p-5 flex flex-col">
+          <div class="flex items-center justify-between border-b border-swiss-border pb-3 mb-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-white font-bold">02. REPOS PRIVACY PIE</span>
+            <span class="text-[10px] font-mono text-swiss-muted">PRIVATE VS PUBLIC</span>
+          </div>
+          <div class="h-64 relative flex items-center justify-center">
+            <canvas id="pie-repos-chart"></canvas>
+          </div>
+        </div>
+
+        <!-- Pie 3: Work Activity Breakdown -->
+        <div class="bg-swiss-surface border border-swiss-border p-5 flex flex-col">
+          <div class="flex items-center justify-between border-b border-swiss-border pb-3 mb-4">
+            <span class="text-xs font-mono uppercase tracking-wider text-white font-bold">03. ACTIVITY PIE</span>
+            <button id="btn-toggle-activity-scale" class="text-[10px] font-mono text-swiss-red hover:text-white uppercase underline cursor-pointer">
+              VIEW: BALANCED
+            </button>
+          </div>
+          <div class="h-64 relative flex items-center justify-center">
+            <canvas id="pie-activity-chart"></canvas>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Complete Repositories Master Inventory -->
+      <div class="bg-swiss-surface border border-swiss-border p-5 mb-8">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-swiss-border pb-4 mb-4">
+          <div>
+            <h3 class="text-xs font-mono uppercase tracking-wider text-white font-bold">MASTER REPOSITORY INVENTORY</h3>
+            <span class="text-[10px] font-mono text-zinc-500">INDEX OF ALL LIFETIME CODEBASES</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <input 
+              type="text" 
+              id="table-search-input" 
+              placeholder="SEARCH BY NAME / LANG..." 
+              class="bg-swiss-black border border-swiss-border px-3 py-1.5 text-xs font-mono text-white placeholder-zinc-600 focus:outline-none focus:border-white uppercase"
+            />
+            <select id="table-visibility-select" class="bg-swiss-black border border-swiss-border px-3 py-1.5 text-xs font-mono text-white focus:outline-none focus:border-white uppercase">
+              <option value="all">ALL REPOS</option>
+              <option value="public">PUBLIC</option>
+              <option value="private">PRIVATE</option>
+              <option value="fork">FORKS</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto custom-scrollbar">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-swiss-black text-zinc-400 uppercase text-[10px] tracking-wider border-b border-swiss-border">
+              <tr>
+                <th class="px-4 py-3">NAME</th>
+                <th class="px-4 py-3">VISIBILITY</th>
+                <th class="px-4 py-3">CATEGORY</th>
+                <th class="px-4 py-3">LANGUAGE</th>
+                <th class="px-4 py-3 text-right">STARS</th>
+                <th class="px-4 py-3 text-right">SIZE</th>
+                <th class="px-4 py-3 text-right">UPDATED</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-tbody" class="divide-y divide-swiss-border/60"></tbody>
+          </table>
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] font-mono text-zinc-500 border-t border-swiss-border/60 pt-3 mt-3">
+          <span>INDEXED: <b id="table-count" class="text-white">0</b> CODEBASES</span>
+          <span id="table-timestamp">AUDIT TIMESTAMP: N/A</span>
+        </div>
+      </div>
+
+      <!-- Export Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-4 bg-swiss-black border border-swiss-border p-4">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-wider text-white font-bold">EXPORT PORTFOLIO DOSSIER</span>
+          <p class="text-[10px] font-mono text-zinc-500">DOWNLOAD FULL RAW AUDIT REPORT</p>
+        </div>
+        <div class="flex items-center gap-2 font-mono text-xs">
+          <button id="export-btn-json" class="bg-swiss-surface hover:bg-zinc-800 border border-swiss-border text-white px-4 py-2 uppercase transition cursor-pointer">
+            JSON
+          </button>
+          <button id="export-btn-csv" class="bg-swiss-surface hover:bg-zinc-800 border border-swiss-border text-white px-4 py-2 uppercase transition cursor-pointer">
+            CSV
+          </button>
+          <button id="export-btn-md" class="bg-swiss-surface hover:bg-zinc-800 border border-swiss-border text-white px-4 py-2 uppercase transition cursor-pointer">
+            MARKDOWN
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="scanner.js?v=2.2"></script>
+  <script src="renderer.js?v=2.2"></script>
+</body>
+</html>

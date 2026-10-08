@@ -1,0 +1,29 @@
+{
+  "name": "gitscope-lifetime",
+  "version": "1.0.0",
+  "description": "Comprehensive Lifetime GitHub Repository Counter, Private/Public Auditor & Deep Analytics Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "web": "node server.js",
+    "build": "electron-builder"
+  },
+  "keywords": [
+    "github",
+    "electron",
+    "repo-counter",
+    "analytics",
+    "lifetime-metrics",
+    "dark-mode",
+    "security-audit"
+  ],
+  "author": "Md Mushfiqur Rahim",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "chart.js": "^4.4.8"
+  },
+  "devDependencies": {
+    "electron": "^34.2.0"
+  }
+}
